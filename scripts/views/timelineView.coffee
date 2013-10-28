@@ -5,12 +5,13 @@ class TimelineView extends Backbone.View
         "mousedown .element span": "dragstart"
         "mouseup": "dragend"
         "mousemove": "drag"
+
     initialize: ->
         @collection = @model.get("tracks")
         @collection.on "add remove reset", @render, @
 
+    # перетаскивание треков по таймлайну
     dragstart: (event) ->
-
         @dragEl = event.delegateTarget
 
         if event.target.tagName.toLowerCase() == "b"
@@ -30,6 +31,7 @@ class TimelineView extends Backbone.View
                 offset = event.clientX - @dragX
                 width = @dragW + offset
                 @dragEl.firstChild.style.width = """#{width}px"""
+
     dragend: (event) ->
         if @dragEl?
             if @dragEl.classList.contains "draggable"
@@ -57,6 +59,7 @@ class TimelineView extends Backbone.View
         width = item.get("duration") / 10
         offset = item.get("offset") / 10
         """<li class="element"><span data-cid="#{item.cid}" style="left: #{offset}px" data-offset="#{offset}"><b style="width:#{width}px">#{item.get("name")} (#{item.get("type")})</b><span></li>"""
+
     render: ->
         @el.innerHTML = (@collection.map @template, @).join('')
         @

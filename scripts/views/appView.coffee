@@ -1,3 +1,4 @@
+# основное представление - отображает внутренние представления
 class AppView extends Backbone.View
 
     render: ->

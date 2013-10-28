@@ -1,3 +1,5 @@
+# верхнее меню с загрузчиком и кнопками управления
+
 class MenuView extends Backbone.View
     tagName: "div"
     className: "pure-menu pure-menu-open pure-menu-horizontal"
@@ -51,12 +53,14 @@ class MenuView extends Backbone.View
         state = @model.get("played")
         @model.set "played", !state
 
+    # неработает
     fullscreen: (event) ->
         event.preventDefault()
         state = @model.get("fullscreen")
         @model.set "fullscreen", !state
         false
 
+    # сохранение на диск
     save: (event) ->
         json = JSON.stringify @model.get("tracks").toJSON()
         blob = new Blob [json], type: "application/json"
@@ -66,6 +70,7 @@ class MenuView extends Backbone.View
         link.download = "project.json"
         link.href = url
 
+    # стилизировать загрузчик не хочется - все равно рядом уже есть форма загрузки
     load: (event) ->
         event.preventDefault()
         alert "Загрузите json-файл проекта в первом пункте меню (как медиафрагмент)"

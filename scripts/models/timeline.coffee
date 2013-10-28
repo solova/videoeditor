@@ -1,3 +1,4 @@
+# объект тестирования и управления
 class TimeLineInstance extends Backbone.Model
     defaults:
         volume: 0.5
@@ -6,8 +7,11 @@ class TimeLineInstance extends Backbone.Model
         fullscreen: no
         played: no
 
+    # @constructor
     initialize: ->
         tracks = new Tracks()
+
+        #увеличение длины таймлайна при увеличении длины треков
         tracks.on "change", =>
             max = 0
             tracks.forEach (track) =>
@@ -20,10 +24,12 @@ class TimeLineInstance extends Backbone.Model
         window.requestAnimationFrame ||= window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame
 
         @next()
+
     add: (track) ->
         tracks = @.get "tracks"
         tracks.add track
         track
+
     remove: (track) ->
         tracks = @.get "tracks"
         tracks.remove track
@@ -45,6 +51,7 @@ class TimeLineInstance extends Backbone.Model
 
     play: ->
         @.set "played", yes
+
     pause: ->
         @.set "played", no
 
@@ -53,11 +60,13 @@ class TimeLineInstance extends Backbone.Model
             @.set "volume", level
         else
             @.get "volume"
+
     position: (timeInSeconds) ->
         if timeInSeconds?
             @.set "position", timeInSeconds
         else
             @.get "position"
+            
     tracks: ->
         (@.get "tracks").models
 

@@ -13,6 +13,7 @@ class PreviewView extends Backbone.View
 
         activeCollection = Backbone.Collection.extend( model:Track )
 
+        # коллекция активных на данный момент треков
         @active = new activeCollection()
         @active.on "add", @addMedia, @
         @active.on "remove", @removeMedia, @
@@ -29,6 +30,7 @@ class PreviewView extends Backbone.View
             model.get("mp3").volume = @model.get "volume"
             model.get("mp3").currentTime = @model.get("position") - model.get("offset")
             model.get("mp3").play()
+
     removeMedia: (model) ->
         if model.get("type") in ['image/jpeg','image/png']
             data = ""
@@ -42,6 +44,7 @@ class PreviewView extends Backbone.View
         else
             model.get("mp3").pause()
 
+    # при изменении громкости - она меняется во всех загруженных треках
     changeVolume: ->
         volume = @model.get "volume"
         tracks = @model.get "tracks"
