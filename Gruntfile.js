@@ -31,7 +31,7 @@ module.exports = function (grunt) {
         uglify: {
             build: {
                 files: {
-                    'scripts.min.js': ['vendor/exoskeleton.js', 'temp/videoEditor.js']
+                    'scripts.min.js': ['vendor/exoskeleton/exoskeleton.js', 'temp/videoEditor.js']
                 }
             }
         },
@@ -63,6 +63,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
 
 
-    grunt.registerTask('default',['less', 'concat',  'coffee', 'cssmin', 'uglify']);
+    grunt.registerTask('default',['less', 'concat',  'coffee', 'cssmin', 'uglify', 'clean']);
 //    grunt.registerTask('default', ['coffee', 'concat', 'uglify', 'hash', 'clean']);
 };
