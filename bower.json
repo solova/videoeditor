@@ -1,0 +1,8 @@
+{
+  "name": "videoEditor",
+  "version": "0.1.0",
+  "dependencies": {
+    "exoskeleton": "latest",
+    "bower-foundation-css": "latest"
+  }
+}
