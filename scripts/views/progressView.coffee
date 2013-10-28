@@ -2,7 +2,7 @@ class ProgressView extends Backbone.View
     tagName: "div"
     className: "progress"
     events:
-        "click": "goto"
+        "click .indicator": "goto"
     initialize: ->
         @indicator = document.createElement "b"
         @indicator.className = "indicator"
@@ -10,7 +10,6 @@ class ProgressView extends Backbone.View
 
         @model.on "change:position", @render, @
     goto: (event) ->
-
         @model.set "position", event.clientX/100.0
 
     render: ->

@@ -1,9 +1,9 @@
-[VideoEditor](http://xelios20.github.com/VideoEditor/) - видеоредактор
+[VideoEditor](http://xelios20.github.com/videoeditor/) - видеоредактор
 ==================================================
 
 Совместимость
 --------------------------------------
-Игра протестирована в Internet Exporer 11, Firefox и Chrome.
+Игра протестирована в Internet Explorer 11, Firefox и Chrome.
 
 
 Технологии и библиотеки

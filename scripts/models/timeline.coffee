@@ -17,6 +17,8 @@ class TimeLineInstance extends Backbone.Model
                 @.set "len", max
         @.set "tracks", tracks
 
+        window.requestAnimationFrame ||= window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame
+
         @next()
     add: (track) ->
         tracks = @.get "tracks"
@@ -38,7 +40,8 @@ class TimeLineInstance extends Backbone.Model
             @lastFrame = +(new Date())
         else
             @lastFrame = 0
-        webkitRequestAnimationFrame (=> @next())
+
+        window.requestAnimationFrame (=> @next())
 
     play: ->
         @.set "played", yes

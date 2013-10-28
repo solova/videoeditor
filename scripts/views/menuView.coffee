@@ -46,6 +46,7 @@ class MenuView extends Backbone.View
                 @loadJSON(file)
 
     playpause: (event) ->
+
         event.preventDefault()
         state = @model.get("played")
         @model.set "played", !state
