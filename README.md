@@ -1,4 +1,4 @@
-[VideoEditor](http://xelios20.github.com/videoeditor/) - видеоредактор
+[VideoEditor](http://solova.github.io/videoeditor/) - видеоредактор
 ==================================================
 
 Совместимость
